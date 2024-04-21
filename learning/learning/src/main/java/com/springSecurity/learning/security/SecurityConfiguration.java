@@ -34,7 +34,9 @@ public class SecurityConfiguration {
                 registry.requestMatchers("/user/**").hasRole("USER");
                 registry.anyRequest().authenticated();
         })
-                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
+                .formLogin(httpSecurityFormLoginConfigurer -> {
+                    httpSecurityFormLoginConfigurer.loginPage("/login").permitAll();
+                })
                 .build();
     }
 

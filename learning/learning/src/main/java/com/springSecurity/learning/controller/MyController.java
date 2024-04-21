@@ -24,4 +24,9 @@ public class MyController {
     public String adminPage(){
         return "home_admin";
     }
+
+    @GetMapping("/login")
+    public String loginPage(){
+        return "custom_login";
+    }
 }
